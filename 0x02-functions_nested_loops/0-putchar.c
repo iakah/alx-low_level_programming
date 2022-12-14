@@ -1,10 +1,18 @@
 #include <stdio.h>
+#include <main.h>
 /**
  * print _putchar
  */
 
+int _putchar(char c)
+{
+	return(write(&c));
+}
 
 int main()
 {
-	printf("_putchar\n");
+	_putchar("_putchar");
+
+
+	return 0;
 }
