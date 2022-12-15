@@ -1,47 +1,34 @@
 #include "main.h"
-#include <stdio.h>
 /**
-  * print_number - we're printing some serious numbers
-  * @n: that's the number, fear it.
-  *
-  * Return: void
-  */
+ * print_number - function outputs digit integers
+ *
+ *@n: is int for digit integer
+ *
+ * Return: 0
+ */
+
 void print_number(int n)
 {
-	unsigned int num;
+	int y = 1000000000;
+	int x, z;
 
-	if (n < 0)
+	for (x = 0; x < 10; x++)
 	{
-		_putchar('-');
-		num = -n;
+		if ((n / y) == 0 && z == 0)
+		{
+			y = (y / 10);
+			continue;
+		}
+		else if (z == 0)
+		{
+			_putchar((n / y) + '0');
+			z++;
+		}
+		else
+		{
+			_putchar ((n / y) % 10 + '0');
+		}
+		y = (y / 10);
 	}
-	else
-		num = n;
-
-	if (num / 10)
-		print_number(num / 10);
-	_putchar('0' + num % 10);
-}#include "holberton.h"
-#include <stdio.h>
-/**
-  * print_number - we're printing some serious numbers
-  * @n: that's the number, fear it.
-  *
-  * Return: void
-  */
-void print_number(int n)
-{
-	unsigned int num;
-
-	if (n < 0)
-	{
-		_putchar('-');
-		num = -n;
-	}
-	else
-		num = n;
-
-	if (num / 10)
-		print_number(num / 10);
-	_putchar('0' + num % 10);
+	_putchar('\n');
 }
