@@ -1,18 +1,16 @@
 #include "main.h"
 #include <stdio.h>
-/**
- * main - takes argument to print name of executable
- * @argc: the totl number of arguments
- * @argv: the array arguments
- * _putchar - print function
- * Return - returns 0 (success)
- */
 
+/**
+ * main - a program that prints its name, followed by a new line
+ * @argc: arguement count
+ * @argv: argument value, a strings that come after calling function
+ * Return: Always 0 (Success)
+ */
 int main(int argc, char *argv[])
 {
-if (argc > 0)
-{
-printf("%s\n", argv[0]);
-}
-return (0);
+	if (argc > 0)
+		printf("%s\n", argv[0]);
+
+	return (0);
 }
