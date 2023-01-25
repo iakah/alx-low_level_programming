@@ -1,39 +1,55 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include "3-calc.h"
+#include "function_pointers.h"
+
 /**
- *main - A program that performs simple operations.
- *@argc: Argument count.
- *@argv: Argument vector.
- *Return: 0 on sucessful exit.
+ * is_98 - check if a number is equal to 98
+ * @elem: the integer to check
+ *
+ * Return: 0 if false, something else otherwise.
  */
-int main(int argc, char **argv)
+int is_98(int elem)
 {
-int num1, num2, res;
-char sign;
-char *op;
-int (*ope)(int, int);
-if (argc != 4)
-{
-printf("Error");
-exit(98);
+  return (98 == elem);
 }
-sign = argv[2][0];
-if ((sign != '+' && sign != '-' && sign != '*' && sign != '/' && sign != '%') || argv[2][1] != '\0')
+
+/**
+ * is_strictly_positive - check if a number is greater than 0
+ * @elem: the integer to check
+ *
+ * Return: 0 if false, something else otherwise.
+ */
+int is_strictly_positive(int elem)
 {
-printf("Error");
-exit(99);
+  return (elem > 0);
 }
-num1 = atoi(argv[1]);
-num2 = atoi(argv[3]);
-if (num2 == 0 && (sign == '%' || sign == '/'))
+
+
+/**
+ * abs_is_98 - check if the absolute value of a number is 98
+ * @elem: the integer to check
+ *
+ * Return: 0 if false, something else otherwise.
+ */
+int abs_is_98(int elem)
 {
-printf("Error");
-exit(100);
+  return (elem == 98 || -elem == 98);
 }
-op = argv[2];
-ope = get_op_func(op);
-res = ope(num1, num2);
-printf("%d\n", res);
-return (0);
+
+/**
+ * main - check the code for Holberton School students.
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+  int array[20] = {0, -98, 98, 402, 1024, 4096, -1024, -98, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 98};
+  int index;
+
+  index = int_index(array, 20, is_98);
+  printf("%d\n", index);
+  index = int_index(array, 20, abs_is_98);
+  printf("%d\n", index);
+  index = int_index(array, 20, is_strictly_positive);
+  printf("%d\n", index);
+  return (0);
 }
